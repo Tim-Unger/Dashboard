@@ -14,11 +14,17 @@ namespace Dashboard.VVS
         Regionalbahn
     }
 
+    enum Status
+    {
+        Running,
+        Unknown,
+        Cancelled,
+    }
+
     class VVSTimetable
     {
         public DateTime RequestTime { get; set; }
         public string Station { get; set; }
-
         public List<Departure>? Departures { get; set; }
     }
 
@@ -32,5 +38,6 @@ namespace Dashboard.VVS
         public string Terminus { get; set; }
         public string DepartureStation { get; set; }
         public TrainType TrainType { get; set; }
+        public Status Status { get; set; }
     }
 }

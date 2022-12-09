@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows;
 using System.Windows.Media;
+using System.DirectoryServices.ActiveDirectory;
 
 namespace Dashboard.VVS
 {
@@ -82,7 +83,7 @@ namespace Dashboard.VVS
 
             ColumnDefinition delay = new()
             {
-                Width = new GridLength(0.5, GridUnitType.Star)
+                Width = new GridLength(1, GridUnitType.Star)
 
             };
 
