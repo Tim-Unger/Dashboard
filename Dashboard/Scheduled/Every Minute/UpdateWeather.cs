@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using RestSharp;
 using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,7 +19,8 @@ namespace Dashboard.Scheduler
         {
             var client = new RestClient($"https://foreca-weather.p.rapidapi.com/current/{LocationId}?alt=0&tempunit=C&windunit=KMH&tz=Europe%2FBerlin&lang=de");
             var request = new RestRequest();
-            request.AddHeader("X-RapidAPI-Key", "c81abd533cmshfd494ef9fa5959ap1544bdjsn48a8a9860a13");
+            string key = File.ReadAllText("../.key");
+            request.AddHeader("X-RapidAPI-Key", key);
             request.AddHeader("X-RapidAPI-Host", "foreca-weather.p.rapidapi.com");
 
             var result = client.Execute(request);
