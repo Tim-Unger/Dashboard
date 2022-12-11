@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.DirectoryServices.ActiveDirectory;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,9 +13,14 @@ namespace Dashboard.Scheduler
         {
             var now = DateTime.Now;
 
-            Main.Hour.Text = now.Hour.ToString();
-            Main.Minute.Text = now.Minute.ToString();
-            Main.Second.Text = now.Second.ToString();
+            string hour = now.Hour.ToString();
+            Main.Hour.Text = hour.Length == 2 ? hour : "0" + hour;
+
+            string minute = now.Minute.ToString();
+            Main.Minute.Text = minute.Length == 2 ? minute : "0" + minute;
+
+            string second = now.Second.ToString();
+            Main.Second.Text = second.Length == 2 ? second : "0" + second;
 
             Main.Weekday.Text = Wochentag(now.DayOfWeek.ToString());
 

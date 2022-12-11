@@ -145,6 +145,76 @@
                         Text="30. Oktober" />
                 </Grid>
             </Grid>
+
+            <Grid Grid.Column="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                </Grid.ColumnDefinitions>
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                </Grid.RowDefinitions>
+
+                <!--  BG Value  -->
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*" />
+                        <ColumnDefinition Width="1*" />
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock
+                        x:Name="BgValue"
+                        Grid.Column="0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        FontSize="50"
+                        FontWeight="Bold"
+                        Foreground="Black"
+                        Text="456" />
+
+                    <TextBlock
+                        x:Name="BgTrend"
+                        Grid.Column="1"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        FontSize="50"
+                        FontWeight="Bold"
+                        Foreground="Black"
+                        Text="^^ " />
+                </Grid>
+
+                <TextBlock
+                    x:Name="BgDelta"
+                    Grid.Row="1"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    FontSize="30"
+                    FontWeight="Bold"
+                    Foreground="Black"
+                    Text="Delta: +55" />
+
+                <TextBlock
+                    x:Name="BgTime"
+                    Grid.Row="2"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    FontSize="25"
+                    FontWeight="Bold"
+                    Foreground="Black"
+                    Text="5 Minutes ago" />
+            </Grid>
         </Grid>
 
         <TextBlock
@@ -153,7 +223,7 @@
             FontWeight="Bold"
             TextAlignment="Right" />
         <Grid Grid.Row="3">
-            <Rectangle Stroke="Black" StrokeThickness="5" />
+            <!--<Rectangle Stroke="Black" StrokeThickness="2" />-->
             <StackPanel
                 x:Name="VVSViewer"
                 Margin="5"

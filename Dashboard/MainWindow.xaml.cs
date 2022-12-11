@@ -16,7 +16,9 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Dashboard.Scheduler;
 using static Dashboard.VVS.GetVVS;
+using static Dashboard.Nightscout.GetEntries;
 using System.Windows.Forms;
+using Dashboard.Nightscout;
 
 namespace Dashboard
 {
@@ -26,6 +28,7 @@ namespace Dashboard
     public partial class MainWindow : Window
     {
         internal VVSTimetable Timetable { get; set; }
+        internal Entry LastEntry { get; set; }
         public static MainWindow? Main { get; set; }
 
         public MainWindow()
@@ -36,10 +39,19 @@ namespace Dashboard
         private void Window_ContentRendered(object sender, EventArgs e)
         {
             Main = this;
+
+            //Clock and timed stuff
             InitializeScheduler.Initialize();
+
+            //VVS
             string vvsData = GetVVSClass();
             Timetable = ParseVVS.ParseVVSClass(vvsData);
             RenderVVS.RenderVVSClass(Timetable);
+
+            //Nightscout
+            string nightscoutData = GetEntriesClass();
+            LastEntry = ParseEntries.GetNewestEntry(nightscoutData);
+            RenderEntries.RenderEntryClass(LastEntry);
         }
     }
 }

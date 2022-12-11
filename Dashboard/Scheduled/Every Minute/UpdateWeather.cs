@@ -19,7 +19,7 @@ namespace Dashboard.Scheduler
         {
             var client = new RestClient($"https://foreca-weather.p.rapidapi.com/current/{LocationId}?alt=0&tempunit=C&windunit=KMH&tz=Europe%2FBerlin&lang=de");
             var request = new RestRequest();
-            string key = File.ReadAllText("../.key");
+            string key = File.ReadAllText("./.key");
             request.AddHeader("X-RapidAPI-Key", key);
             request.AddHeader("X-RapidAPI-Host", "foreca-weather.p.rapidapi.com");
 
