@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using System.Windows.Navigation;
+//using System.Windows.Navigation;
 using Newtonsoft.Json;
 
 namespace Dashboard.Nightscout
@@ -24,7 +24,7 @@ namespace Dashboard.Nightscout
             int hours = nightscoutEntry.UtcOffset / 60;
             DateTime entryTime = nightscoutEntry.DateString.AddHours(hours);
             int value = nightscoutEntry.Sgv;
-            int delta = (int)Math.Round(nightscoutEntry.Delta, 0);
+            var delta = Math.Round(nightscoutEntry.Delta, 0);
             string directionString = nightscoutEntry.Direction;
             Direction direction = directionString switch
             {
@@ -43,7 +43,7 @@ namespace Dashboard.Nightscout
                 Date = entryTime,
                 Value = value,
                 Direction = direction,
-                Delta = delta,
+                Delta = Convert.ToInt32(delta),
                 DirectionString = directionString
             };
 

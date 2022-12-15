@@ -5,21 +5,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
+//using System.Windows.Forms;
+//using System.Timers;
+using Avalonia.Threading;
 
 namespace Dashboard.Scheduler
 {
    
     internal class InitializeScheduler
     {
-        private static Timer ClockTimer;
+        private static DispatcherTimer ClockTimer;
 
         public static void Initialize()
         {
             //JobManager.Initialize();
-            ClockTimer = new Timer();
-            ClockTimer.Tick += new EventHandler(timer1_Tick);
-            ClockTimer.Interval = 500; // in miliseconds
+            UpdateWeather.Weather();
+            ClockTimer = new DispatcherTimer();
+            ClockTimer.Tick += ClockTimer_Elapsed;
+            ClockTimer.Interval = new TimeSpan(0,0,1); // in miliseconds
             ClockTimer.Start();
 
             //JobManager.AddJob(
@@ -27,10 +30,9 @@ namespace Dashboard.Scheduler
             //    task => task.ToRunEvery(10).Seconds());
         }
 
-        private static void timer1_Tick(object sender, EventArgs e)
+        private static void ClockTimer_Elapsed(object? sender, EventArgs e)
         {
             UpdateClock.Clock();
-            UpdateWeather.Weather();
         }
     }
 }

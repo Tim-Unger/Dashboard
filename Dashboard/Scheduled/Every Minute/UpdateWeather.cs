@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Documents;
+//using System.Windows.Documents;
 
 namespace Dashboard.Scheduler
 {
@@ -33,7 +33,7 @@ namespace Dashboard.Scheduler
                 Main.Temperature.Text = weather.Temperature.ToString() + "°C"; 
                 return;
             }
-            throw new Exception("Weather Fetching Error");
+            //throw new Exception("Weather Fetching Error");
         }
     }
 }

@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Controls;
+//using System.Windows.Controls;
 using System.Windows;
-using System.Windows.Media;
-using System.DirectoryServices.ActiveDirectory;
+//using System.Windows.Media;
+using Avalonia.Controls;
+using Avalonia.Media;
+//using System.DirectoryServices.ActiveDirectory;
 
 namespace Dashboard.VVS
 {
@@ -105,8 +107,8 @@ namespace Dashboard.VVS
         {
             TextBlock textBlock = new()
             {
-                FontSize = 20,
-                FontWeight = FontWeights.Bold,
+                FontSize = 30,
+                FontWeight = FontWeight.Bold,
                 Text = text,
                 TextTrimming = TextTrimming.CharacterEllipsis
             };
