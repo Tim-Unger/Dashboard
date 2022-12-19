@@ -10,14 +10,14 @@ namespace Dashboard.ConfigClass
 {
     class ReadConfig
     {
-        public static Config ReadConfigClass()
+        public static Config? ReadConfigClass()
         {
             Config config = new();
             string configRaw = File.ReadAllText("./config.json");
 
             var configJson = JsonConvert.DeserializeObject<Config>(configRaw);
 
-            return config;
+            return configJson;
         }
     }
 }

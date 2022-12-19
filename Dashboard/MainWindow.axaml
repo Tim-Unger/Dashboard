@@ -7,12 +7,11 @@
         Height="1280"
         x:Class="Dashboard.MainWindow"
         Title="Dashboard">
-	
+
 	<Grid Margin="20">
 		<Grid.RowDefinitions>
 			<RowDefinition Height="1*" />
 			<RowDefinition Height="0.5*" />
-			<!--<RowDefinition Height="0.25*" />-->
 			<RowDefinition Height="0.1*" />
 			<RowDefinition Height="0.5*" />
 		</Grid.RowDefinitions>
@@ -23,29 +22,189 @@
 				<ColumnDefinition Width="1*" />
 			</Grid.ColumnDefinitions>
 
-			<!--  Weather Grid  -->
 			<Grid Grid.Column="0">
-				<Grid.RowDefinitions>
-					<RowDefinition Height="1*" />
-					<RowDefinition Height="1*" />
-				</Grid.RowDefinitions>
 
+				<!--  Weather and BG  -->
 				<Grid Grid.Row="0">
-					<Grid.ColumnDefinitions>
-						<ColumnDefinition Width="1*" />
-						<ColumnDefinition Width="2*" />
-					</Grid.ColumnDefinitions>
+					<Grid.RowDefinitions>
+						<RowDefinition Height="1*" />
+						<RowDefinition Height="1*" />
+					</Grid.RowDefinitions>
 
-					<TextBlock
-                        x:Name="Temperature"
-                        Grid.Column="1"
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Top"
-                        FontSize="90"
-                        FontWeight="Bold"
-                        Foreground="Black"
-                        Text="-11°C" />
+					<!--  Weather Grid  -->
+					<Grid Grid.Row="0">
+
+
+						<Grid.RowDefinitions>
+							<RowDefinition Height="1*" />
+							<RowDefinition Height="1*" />
+						</Grid.RowDefinitions>
+
+						<Grid Grid.Row="0">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="1*" />
+								<ColumnDefinition Width="2*" />
+							</Grid.ColumnDefinitions>
+
+							<TextBlock
+                                x:Name="Temperature"
+                                Grid.Column="1"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Top"
+                                FontSize="90"
+                                FontWeight="Bold"
+                                Foreground="Black"
+                                Text="-11°C" />
+						</Grid>
+
+						<Grid Grid.Row="1">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="1*" />
+								<ColumnDefinition Width="1*" />
+								<ColumnDefinition Width="1*" />
+							</Grid.ColumnDefinitions>
+
+
+							<!--  Forecast one hour  -->
+							<Grid Grid.Column="0">
+								<Grid.RowDefinitions>
+									<RowDefinition Height="1*" />
+									<RowDefinition Height="1*" />
+								</Grid.RowDefinitions>
+								<TextBlock
+                                    x:Name="TempOneHour"
+                                    Grid.Row="0"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Top"
+                                    FontSize="40"
+                                    FontWeight="Bold"
+                                    Foreground="Black"
+                                    Text="-11°C" />
+
+								<TextBlock
+                                    x:Name="TimeOneHour"
+                                    Grid.Row="1"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Top"
+                                    FontSize="40"
+                                    FontWeight="Regular"
+                                    Foreground="Black"
+                                    Text="17:00" />
+							</Grid>
+
+							<!--  Forecast two hours  -->
+							<Grid Grid.Column="1">
+								<Grid.RowDefinitions>
+									<RowDefinition Height="1*" />
+									<RowDefinition Height="1*" />
+								</Grid.RowDefinitions>
+								<TextBlock
+                                    x:Name="TempTwoHour"
+                                    Grid.Row="0"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Top"
+                                    FontSize="40"
+                                    FontWeight="Bold"
+                                    Foreground="Black"
+                                    Text="-11°C" />
+
+								<TextBlock
+                                    x:Name="TimeTwoHour"
+                                    Grid.Row="1"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Top"
+                                    FontSize="40"
+                                    FontWeight="Regular"
+                                    Foreground="Black"
+                                    Text="18:00" />
+							</Grid>
+							<!--  Forecast three hours  -->
+							<Grid Grid.Column="2">
+								<Grid.RowDefinitions>
+									<RowDefinition Height="1*" />
+									<RowDefinition Height="1*" />
+								</Grid.RowDefinitions>
+								<TextBlock
+                                    x:Name="TempThreeHour"
+                                    Grid.Row="0"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Top"
+                                    FontSize="40"
+                                    FontWeight="Bold"
+                                    Foreground="Black"
+                                    Text="-11°C" />
+
+								<TextBlock
+                                    x:Name="TimeThreeHour"
+                                    Grid.Row="1"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Top"
+                                    FontSize="40"
+                                    FontWeight="Regular"
+                                    Foreground="Black"
+                                    Text="19:00" />
+							</Grid>
+
+						</Grid>
+					</Grid>
+
+					<!--  BG Value  -->
+					<Grid Grid.Row="1">
+						<Grid.RowDefinitions>
+							<RowDefinition Height="2*" />
+							<RowDefinition Height="1*" />
+							<RowDefinition Height="1*" />
+						</Grid.RowDefinitions>
+
+						<Grid Grid.Row="0">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="2*" />
+								<ColumnDefinition Width="1*" />
+							</Grid.ColumnDefinitions>
+
+							<TextBlock
+                                x:Name="BgValue"
+                                Grid.Column="0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                FontSize="90"
+                                FontWeight="Bold"
+                                Foreground="Black"
+                                Text="456" />
+
+							<TextBlock
+                                x:Name="BgTrend"
+                                Grid.Column="1"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                FontSize="80"
+                                FontWeight="Bold"
+                                Foreground="Black"
+                                Text="^^ " />
+						</Grid>
+
+						<TextBlock
+                            x:Name="BgDelta"
+                            Grid.Row="1"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            FontSize="40"
+                            FontWeight="Bold"
+                            Foreground="Black"
+                            Text="Delta: +55" />
+
+						<TextBlock
+                            x:Name="BgTime"
+                            Grid.Row="2"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            FontSize="30"
+                            FontWeight="Bold"
+                            Foreground="Black"
+                            Text="5 Minutes ago" />
+					</Grid>
 				</Grid>
+
 
 			</Grid>
 
@@ -155,65 +314,84 @@
 				<ColumnDefinition Width="1*" />
 			</Grid.ColumnDefinitions>
 
-			<!--  BG Value  -->
 			<Grid Grid.Column="0">
 				<Grid.RowDefinitions>
-					<RowDefinition Height="2*" />
+					<RowDefinition Height="1*" />
+					<RowDefinition Height="1*" />
+					<RowDefinition Height="1*" />
 					<RowDefinition Height="1*" />
 					<RowDefinition Height="1*" />
 				</Grid.RowDefinitions>
 
-				<Grid Grid.Row="0">
-					<Grid.ColumnDefinitions>
-						<ColumnDefinition Width="2*" />
-						<ColumnDefinition Width="1*" />
-					</Grid.ColumnDefinitions>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="1.5*" />
+					<ColumnDefinition Width="1*" />
+					<ColumnDefinition Width="1*" />
+				</Grid.ColumnDefinitions>
 
+				<!--  First Row  -->
+				<Grid Grid.Row="0">
 					<TextBlock
-                        x:Name="BgValue"
+                        x:Name="WeekdayOne"
                         Grid.Column="0"
                         HorizontalAlignment="Left"
                         VerticalAlignment="Center"
-                        FontSize="90"
+                        FontSize="25"
                         FontWeight="Bold"
                         Foreground="Black"
-                        Text="456" />
-
-					<TextBlock
-                        x:Name="BgTrend"
-                        Grid.Column="1"
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Center"
-                        FontSize="80"
-                        FontWeight="Bold"
-                        Foreground="Black"
-                        Text="^^ " />
+                        Text="Montag" />
 				</Grid>
 
-				<TextBlock
-                    x:Name="BgDelta"
-                    Grid.Row="1"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Center"
-                    FontSize="40"
-                    FontWeight="Bold"
-                    Foreground="Black"
-                    Text="Delta: +55" />
+				<Grid Grid.Row="1">
+					<TextBlock
+                        x:Name="WeekdayTwo"
+                        Grid.Column="0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        FontSize="25"
+                        FontWeight="Bold"
+                        Foreground="Black"
+                        Text="Dienstag" />
+				</Grid>
 
-				<TextBlock
-                    x:Name="BgTime"
-                    Grid.Row="2"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Center"
-                    FontSize="30"
-                    FontWeight="Bold"
-                    Foreground="Black"
-                    Text="5 Minutes ago" />
+				<Grid Grid.Row="2">
+					<TextBlock
+                        x:Name="WeekdayThree"
+                        Grid.Column="0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        FontSize="25"
+                        FontWeight="Bold"
+                        Foreground="Black"
+                        Text="Mittwoch" />
+				</Grid>
+
+				<Grid Grid.Row="3">
+					<TextBlock
+                        x:Name="WeekdayFour"
+                        Grid.Column="0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        FontSize="25"
+                        FontWeight="Bold"
+                        Foreground="Black"
+                        Text="Donnerstag" />
+				</Grid>
+
+				<Grid Grid.Row="4">
+					<TextBlock
+                        x:Name="WeekdayFive"
+                        Grid.Column="0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        FontSize="25"
+                        FontWeight="Bold"
+                        Foreground="Black"
+                        Text="Freitag" />
+				</Grid>
 			</Grid>
 
 			<Grid Grid.Column="1">
-
-
 				<Grid x:Name="CountdownButtonsGrid">
 					<Grid.RowDefinitions>
 						<RowDefinition Height="1*" />
@@ -278,12 +456,19 @@
 		<Grid Grid.Row="4">
 			<!--<Rectangle Stroke="Black" StrokeThickness="2" />-->
 			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="231*" />
+					<ColumnDefinition Width="529*" />
+				</Grid.ColumnDefinitions>
 				<Grid.RowDefinitions>
 					<RowDefinition Height="2 *" />
 					<RowDefinition Height="10*" />
 				</Grid.RowDefinitions>
 
-				<StackPanel Grid.Row="0" Orientation="Horizontal">
+				<StackPanel
+                    Grid.Row="0"
+                    Grid.ColumnSpan="2"
+                    Orientation="Horizontal">
 					<Button
                         x:Name="StationButton"
                         Background="White"
@@ -293,6 +478,7 @@
                         FontWeight="Bold"
                         Foreground="Black" />
 					<Button
+                        x:Name="RouteButton"
                         Background="White"
                         Content="Route"
                         FontSize="20"
@@ -300,7 +486,7 @@
                         Foreground="Black" />
 					<Button
                         Background="White"
-                        Content="Route"
+                        Content="Shopping"
                         FontSize="20"
                         FontWeight="Bold"
                         Foreground="Black" />
@@ -309,7 +495,8 @@
 				<StackPanel
                     x:Name="VVSViewer"
                     Grid.Row="1"
-                    Margin="5"
+                    Grid.ColumnSpan="2"
+                    Margin="5,5,5,5"
                     Orientation="Vertical" />
 			</Grid>
 		</Grid>

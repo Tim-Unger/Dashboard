@@ -8,31 +8,39 @@ using System.Threading.Tasks;
 //using System.Windows.Forms;
 //using System.Timers;
 using Avalonia.Threading;
+using System.Runtime.CompilerServices;
+using System.Reflection;
 
 namespace Dashboard.Scheduler
 {
    
     internal class InitializeScheduler
     {
-        private static DispatcherTimer ClockTimer;
+        private static DispatcherTimer ClockTimer = new();
+        private static DispatcherTimer WeatherTimer = new();
 
         public static void Initialize()
         {
-            //JobManager.Initialize();
-            UpdateWeather.Weather();
-            ClockTimer = new DispatcherTimer();
+            JobManager.Initialize();
+
             ClockTimer.Tick += ClockTimer_Elapsed;
-            ClockTimer.Interval = new TimeSpan(0,0,1); // in miliseconds
+            ClockTimer.Interval = new TimeSpan(0,0,1); //every second
             ClockTimer.Start();
 
-            //JobManager.AddJob(
-            //    ()=> UpdateClock.Clock(),
-            //    task => task.ToRunEvery(10).Seconds());
+            UpdateWeather.Weather();
+            WeatherTimer.Tick += WeatherTimer_Elapsed;
+            WeatherTimer.Interval = new TimeSpan(0, 2, 0); // every two minutes
+            WeatherTimer.Start();
         }
 
         private static void ClockTimer_Elapsed(object? sender, EventArgs e)
         {
             UpdateClock.Clock();
+        }
+
+        private static void WeatherTimer_Elapsed(object? sender, EventArgs e)
+        {
+            UpdateWeather.Weather();
         }
     }
 }

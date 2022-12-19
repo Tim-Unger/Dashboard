@@ -16,5 +16,7 @@ namespace Dashboard.ConfigClass
         public int TimeToStation { get; set; }
         public string[]/*(int Minutes, int Seconds)*/ Timer1Time { get; set; }
         public string[]/*(int Minutes, int Seconds)*/ Timer2Time { get; set; }
+        public string ClientId { get; set; }
+        public string ClientKey { get; set; }
     }
 }

@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
-//using System.Windows.Forms;
-using System.Media;
-//using System.Timers;
 using Avalonia.Threading;
+using Avalonia.Media;
+using Plugin.SimpleAudioPlayer;
+using System.Net.Http.Headers;
+using Vortice.Multimedia;
+using System.IO;
 
 namespace Dashboard.Timers
 {
@@ -14,7 +16,7 @@ namespace Dashboard.Timers
     {
         public Stopwatch Stopwatch = new();
         public static DispatcherTimer Timer = new();
-        //public static SoundPlay Player = new("./TimerSound.wav");
+        
         public static int Duration;
 
         public static void TimerStart(int minutes, int seconds)
@@ -35,8 +37,13 @@ namespace Dashboard.Timers
         {
             if (Duration == 0)
             {
+                var engine = SharpAudio.AudioEngine.CreateDefault();
+                var stream = new SharpAudio.Codec.SoundStream(File.OpenRead("/TimerSound.wav"), engine);
                 Timer.Stop();
-                //Player.PlayLooping();
+
+                //TODO
+                stream.Volume = 1.0f;
+                stream.Play();
                 //TODO Stop Player click
                 return;
             }

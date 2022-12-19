@@ -1,0 +1,15 @@
+{
+  "language": "de",
+  "station": "ludwigsburg",
+  "route": [
+    "ludwigsburg",
+    "zuffenhause"
+  ],
+  "weatherkey": "6b0a1ef599mshf1326b62b6ec2fdp1299a4jsn6b0edbc46fa5",
+  "weatherlocationid": "102875392",
+  "timetostation": "10",
+  "timer1time": [ "12", "0" ],
+  "timer2time": [ "3", "0" ],
+  "clientid" : "719830190985-iv69n5lie206bo870fca9c1m91jgljbg.apps.googleusercontent.com",
+  "clientkey" : "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",
+}
