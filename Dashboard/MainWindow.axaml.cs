@@ -25,6 +25,7 @@ using System.Runtime.CompilerServices;
 using Event = Google.Apis.Calendar.v3.Data.Event;
 using System.Collections.Generic;
 using Dashboard.Calendar;
+using Dashboard.Grocy;
 
 //using System.Windows.Forms;
 
@@ -37,6 +38,8 @@ namespace Dashboard
         public static MainWindow Main { get; set; }
         public static Config Config { get; set; }
         public static List<Event> Events { get; set; }
+        public static List<Item> GrocyItems { get; set; }
+        public static List<ShoppingItem> ShoppingItems { get; set; }
 
         public MainWindow()
         {
@@ -63,14 +66,16 @@ namespace Dashboard
             Config = ReadConfig.ReadConfigClass();
 
             //Nightscout
-            string nightscoutData = GetEntriesClass();
-            LastEntry = ParseEntries.GetNewestEntry(nightscoutData);
-            RenderEntries.RenderEntryClass(LastEntry);
+            //string nightscoutData = GetEntriesClass();
+            //LastEntry = ParseEntries.GetNewestEntry(nightscoutData);
+            //RenderEntries.RenderEntryClass(LastEntry);
 
             Events  = GetCalendar.GetCalendarClass().Result;
             RenderCalendar.RenderCalendarClass(Events);
 
-
+            GrocyItems = GetGrocy.GetItems();
+            ShoppingItems = GetGrocy.GetShoppingItems();
+            RenderShoppingList.RenderShoppingListClass(ShoppingItems);
         }
 
         private void Window_ContentRendered(object sender, EventArgs e)

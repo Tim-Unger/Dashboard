@@ -37,7 +37,7 @@ namespace Dashboard.Calendar
 
             var calendarsRaw = await service.Events.List("timderkuerbis@gmail.com").ExecuteAsync().ConfigureAwait(false);
 
-            return calendarsRaw.Items.ToList().Where(x => x.Start.DateTime >= DateTime.Now && new[] { "Früh", "Spät" }.Any(y => x.Summary.Contains(y))).ToList();
+            return calendarsRaw.Items.ToList().Where(x => x.Start.DateTime.HasValue && x.Start.DateTime.Value.Day >= DateTime.Now.Day && new[] { "Früh", "Spät" }.Any(y => x.Summary.Contains(y))).Take(5).ToList();
         }
     }
 }
