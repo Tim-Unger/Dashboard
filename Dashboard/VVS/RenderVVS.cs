@@ -18,7 +18,7 @@ namespace Dashboard.VVS
         {
             foreach (var dep in timetable.Departures)
             {
-                if (Main.VVSViewer.Children.Count <= 10)
+                if (Main.VVSStationViewer.Children.Count <= 7)
                 {
                     Grid grid = RenderColumns();
 
@@ -54,7 +54,7 @@ namespace Dashboard.VVS
                     grid.Children.Add(platform);
                     Grid.SetColumn(platform, 4);
 
-                    Main.VVSViewer.Children.Add(grid);
+                    Main.VVSStationViewer.Children.Add(grid);
                     continue;
                 }
                 break;

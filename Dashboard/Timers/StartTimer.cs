@@ -19,7 +19,7 @@ namespace Dashboard.Timers
         
         public static int Duration;
 
-        public static void TimerStart(int minutes, int seconds)
+        public static void TimerStart(int hours, int minutes, int seconds)
         {
             Duration =  minutes * 60 + seconds;
 

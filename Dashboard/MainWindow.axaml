@@ -33,8 +33,6 @@
 
 					<!--  Weather Grid  -->
 					<Grid Grid.Row="0">
-
-
 						<Grid.RowDefinitions>
 							<RowDefinition Height="1*" />
 							<RowDefinition Height="1*" />
@@ -144,7 +142,6 @@
                                     Foreground="Black"
                                     Text="19:00" />
 							</Grid>
-
 						</Grid>
 					</Grid>
 
@@ -308,78 +305,132 @@
 			</Grid>
 		</Grid>
 
-		<Grid Grid.Row="1" x:Name="NextShiftsAndTimerGrid">
+		<Grid x:Name="NextShiftsAndTimerGrid" Grid.Row="1">
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition Width="1*" />
 				<ColumnDefinition Width="1*" />
 			</Grid.ColumnDefinitions>
 
-			<Grid Grid.Column="0" x:Name="NextShiftsGrid">
+			<Grid x:Name="NextShiftsGrid" Grid.Column="0">
 				<Grid.ColumnDefinitions>
-					<ColumnDefinition Width="1.5*"/>
-					<ColumnDefinition Width="1*"/>
-					<ColumnDefinition Width="1*"/>
+					<ColumnDefinition Width="1.5*" />
+					<ColumnDefinition Width="1*" />
+					<ColumnDefinition Width="1*" />
 				</Grid.ColumnDefinitions>
 
 				<Grid.RowDefinitions>
-					<RowDefinition Height="1*"/>
-					<RowDefinition Height="1*"/>
-					<RowDefinition Height="1*"/>
-					<RowDefinition Height="1*"/>
-					<RowDefinition Height="1*"/>
+					<RowDefinition Height="1*" />
+					<RowDefinition Height="1*" />
+					<RowDefinition Height="1*" />
+					<RowDefinition Height="1*" />
+					<RowDefinition Height="1*" />
 				</Grid.RowDefinitions>
 			</Grid>
 
 			<Grid Grid.Column="1">
-				<Grid x:Name="CountdownButtonsGrid">
+				<Grid>
 					<Grid.RowDefinitions>
-						<RowDefinition Height="1*" />
-						<RowDefinition Height="1*" />
-						<RowDefinition Height="1*" />
+						<RowDefinition Height="2*" />
+						<RowDefinition Height="10*" />
 					</Grid.RowDefinitions>
 
-					<!--  TODO Custom countdown  -->
-					<Button
-                        x:Name="Countdown1"
-                        Grid.Row="0"
-                        Padding="20,0,20,0"
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Center"
-                        Background="#909090"
-                        BorderThickness="0"
-                        Click="Countdown1_Click"
-                        Content="12:00"
-                        FontSize="40"
-                        FontWeight="Bold"
-                        Foreground="Black" />
+					<StackPanel Grid.Row="0" Orientation="Horizontal">
+						<Button
+                            x:Name="TimerButton"
+                            Grid.Row="0"
+                            Margin="0,0,5,0"
+                            Background="#909090"
+                            BorderThickness="0"
+                            Click="Countdown1_Click"
+                            Content="Timer"
+                            FontSize="30"
+                            FontWeight="Bold"
+                            Foreground="Black" />
 
-					<Button
-                        x:Name="Countdown2"
-                        Grid.Row="1"
-                        Padding="20,0,20,0"
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Center"
-                        Background="#909090"
-                        BorderThickness="0"
-                        Click="Countdown2_Click"
-                        Content="3:00"
-                        FontSize="40"
-                        FontWeight="Bold"
-                        Foreground="Black" />
+						<Button
+                            x:Name="StopwatchButton"
+                            Grid.Row="0"
+                            Margin="0,0,5,0"
+                            Background="#909090"
+                            BorderThickness="0"
+                            Click="Countdown1_Click"
+                            Content="Stopwatch"
+                            FontSize="30"
+                            FontWeight="Bold"
+                            Foreground="Black" />
+						<Button
+                            x:Name="AlarmButton"
+                            Grid.Row="0"
+                            Margin="0,0,5,0"
+                            Background="#909090"
+                            BorderThickness="0"
+                            Click="Countdown1_Click"
+                            Content="Alarm"
+                            FontSize="30"
+                            FontWeight="Bold"
+                            Foreground="Black" />
+					</StackPanel>
+					<Grid x:Name="CountdownButtonsGrid" Grid.Row="2">
+						<Grid.RowDefinitions>
+							<RowDefinition Height="1*" />
+							<RowDefinition Height="1*" />
+							<RowDefinition Height="1*" />
+						</Grid.RowDefinitions>
+
+						<Button
+                            x:Name="Countdown1"
+                            Grid.Row="0"
+                            Padding="20,0,20,0"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Background="#909090"
+                            BorderThickness="0"
+                            Click="Countdown1_Click"
+                            Content=""
+                            FontSize="40"
+                            FontWeight="Bold"
+                            Foreground="Black" />
+
+						<Button
+                            x:Name="Countdown2"
+                            Grid.Row="1"
+                            Padding="20,0,20,0"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Background="#909090"
+                            BorderThickness="0"
+                            Click="Countdown2_Click"
+                            Content=""
+                            FontSize="40"
+                            FontWeight="Bold"
+                            Foreground="Black" />
+
+						<Button
+                            x:Name="Countdown3"
+                            Grid.Row="2"
+                            Padding="20,0,20,0"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Background="#909090"
+                            BorderThickness="0"
+                            Click="Countdown3_Click"
+                            Content="Custom"
+                            FontSize="40"
+                            FontWeight="Bold"
+                            Foreground="Black" />
+					</Grid>
+
+					<Grid x:Name="CountdownGrid" IsVisible="False" Grid.Row="2">
+						<TextBlock
+                            x:Name="Countdown"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            FontSize="80"
+                            FontWeight="Bold"
+                            Foreground="Black"
+                            Text="" />
+					</Grid>
 				</Grid>
-
-				<Grid x:Name="CountdownGrid" IsVisible="False">
-					<TextBlock
-                        x:Name="Countdown"
-                        Grid.Column="1"
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Center"
-                        FontSize="80"
-                        FontWeight="Bold"
-                        Foreground="Black"
-                        Text="" />
-				</Grid>
-
 			</Grid>
 		</Grid>
 
@@ -410,7 +461,7 @@
                     Orientation="Horizontal">
 					<Button
                         x:Name="StationButton"
-                        Background="White"
+                        Background="#808080"
                         Click="StationButton_Click"
                         Content="Station"
                         FontSize="20"
@@ -418,13 +469,16 @@
                         Foreground="Black" />
 					<Button
                         x:Name="RouteButton"
-                        Background="White"
+                        Background="#808080"
+                        Click="RouteButton_Click"
                         Content="Route"
                         FontSize="20"
                         FontWeight="Bold"
                         Foreground="Black" />
 					<Button
-                        Background="White"
+                        x:Name="GroceryButton"
+                        Background="#808080"
+                        Click="GroceryButton_Click"
                         Content="Shopping"
                         FontSize="20"
                         FontWeight="Bold"
@@ -432,18 +486,28 @@
 				</StackPanel>
 
 				<StackPanel
-                    x:Name="VVSViewer"
+                    x:Name="VVSStationViewer"
                     Grid.Row="1"
                     Grid.ColumnSpan="2"
                     Margin="5,5,5,5"
-                    Orientation="Vertical" IsVisible="False"/>
+                    Orientation="Vertical"
+                    IsVisible="False" />
+
+				<StackPanel
+                    x:Name="VVSRouteViewer"
+                    Grid.Row="1"
+                    Grid.ColumnSpan="2"
+                    Margin="5,5,5,5"
+                    Orientation="Vertical"
+                    IsVisible="False" />
 
 				<StackPanel
                     x:Name="GroceryViewer"
                     Grid.Row="1"
                     Grid.ColumnSpan="2"
                     Margin="5,5,5,5"
-                    Orientation="Vertical" />
+                    Orientation="Vertical"
+                    IsVisible="False" />
 			</Grid>
 		</Grid>
 	</Grid>

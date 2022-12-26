@@ -26,6 +26,11 @@ namespace Dashboard.Calendar
     {
         public static void RenderCalendarClass(List<Event> events)
         {
+
+            //TODO
+            double weekAmount = events.Count / 7;
+            int weekAmountRound = weekAmount > 0 ? (int)Math.Round(weekAmount, 0) : 1;
+
             //Shift type and weekday
             List<(ShiftType?, string)> nextDays = new();
 

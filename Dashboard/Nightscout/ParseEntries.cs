@@ -55,7 +55,7 @@ namespace Dashboard.Nightscout
 
             if (entries == null )
             {
-                throw new Exception();
+                return Enumerable.Empty<Entry>().ToList();
             }
 
             return new List<Entry>();

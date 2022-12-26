@@ -20,13 +20,19 @@ namespace Dashboard.Grocy
             request.AddHeader("GROCY-API-KEY", "ulX6aty65YmwQCuwU8F7GEsmH8EWwGSG83pjBsCjGISWDplj4u");
             var result = client.Execute(request);
 
-            List<GrocyJson> jsonItems = new();
-            if (result.StatusCode != System.Net.HttpStatusCode.OK)
+            List<GrocyJson>? jsonItems = new();
+            if (result.StatusCode != System.Net.HttpStatusCode.OK && result.Content != null)
             {
                 throw new Exception();
             }
 
             jsonItems = JsonConvert.DeserializeObject<List<GrocyJson>>(result.Content);
+
+            if(jsonItems is null || jsonItems.Count == 0)
+            {
+                return Enumerable.Empty<Item>().ToList();
+            }
+
             foreach (var jsonItem in jsonItems)
             {
                 Item item = new()
@@ -51,7 +57,7 @@ namespace Dashboard.Grocy
             request.AddHeader("GROCY-API-KEY", "ulX6aty65YmwQCuwU8F7GEsmH8EWwGSG83pjBsCjGISWDplj4u");
             var result = client.Execute(request);
 
-            List<GrocyShoppingJson> jsonitems = new();
+            List<GrocyShoppingJson>? jsonitems = new();
             List<ShoppingItem> items = new();
             if (result.StatusCode != System.Net.HttpStatusCode.OK)
             {
@@ -59,6 +65,11 @@ namespace Dashboard.Grocy
             }
 
             jsonitems = JsonConvert.DeserializeObject<List<GrocyShoppingJson>>(result.Content);
+
+            if(jsonitems is null || jsonitems.Count == 0)
+            {
+                return Enumerable.Empty<ShoppingItem>().ToList();
+            }
 
             foreach (var item in jsonitems)
             {

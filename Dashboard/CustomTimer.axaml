@@ -1,0 +1,165 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" Height="400" Width="300"
+        x:Class="Dashboard.CustomTimer"
+        Title="CustomTimer" x:Name="CustomTimerWindow">
+		<Grid x:Name="MainGrid">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="1*"/>
+				<RowDefinition Height="1*"/>
+				<RowDefinition Height="1*"/>
+				<RowDefinition Height="1*"/>
+				<RowDefinition Height="1*"/>
+				<RowDefinition Height="1*"/>
+			</Grid.RowDefinitions>
+
+			<Grid Grid.Row="0" x:Name="FirstRow">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition  Width="1*"/>
+					<ColumnDefinition  Width="1*"/>
+					<ColumnDefinition  Width="1*"/>
+					<ColumnDefinition  Width="1*"/>
+					<ColumnDefinition  Width="1*"/>
+					<ColumnDefinition  Width="1*"/>
+					<ColumnDefinition  Width="1*"/>
+					<ColumnDefinition  Width="1*"/>
+					<ColumnDefinition  Width="1*"/>
+				</Grid.ColumnDefinitions>
+
+				<TextBlock 
+					x:Name="HourOneBlock" 
+					Grid.Column="0" 
+					Foreground="#404040" 
+					FontWeight="Bold" 
+					HorizontalAlignment="Right" 
+					VerticalAlignment="Center"
+					FontSize="40" 
+					Text="0"/>
+				
+				<TextBlock
+					x:Name="HourTwoBlock"
+					Grid.Column="1"
+					Foreground="#404040"
+					FontWeight="Bold"
+					HorizontalAlignment="Left"
+					VerticalAlignment="Center"
+					FontSize="40"
+					Text="0"/>
+
+				<TextBlock
+					Grid.Column="2"
+					Foreground="#404040"
+					FontWeight="Bold"
+					HorizontalAlignment="Left"
+					VerticalAlignment="Center"
+					FontSize="20"
+					Text="h"/>
+				
+				<TextBlock 
+					x:Name="MinuteOneBlock" 
+					Grid.Column="3" 
+					Foreground="#404040" 
+					FontWeight="Bold" 
+					HorizontalAlignment="Right" 
+					VerticalAlignment="Center" 
+					FontSize="40" 
+					Text="0"/>
+
+				<TextBlock
+					x:Name="MinuteTwoBlock"
+					Grid.Column="4"
+					Foreground="#404040"
+					FontWeight="Bold"
+					HorizontalAlignment="Left"
+					VerticalAlignment="Center"
+					FontSize="40"
+					Text="0"/>
+
+				<TextBlock
+					Grid.Column="5"
+					Foreground="#404040"
+					FontWeight="Bold"
+					HorizontalAlignment="Left"
+					VerticalAlignment="Center"
+					FontSize="20"
+					Text="m"/>
+
+				<TextBlock
+					x:Name="SecondOneBlock"
+					Grid.Column="6"
+					Foreground="#404040"
+					FontWeight="Bold"
+					HorizontalAlignment="Right"
+					VerticalAlignment="Center"
+					FontSize="40"
+					Text="0"/>
+
+				<TextBlock
+					x:Name="SecondTwoBlock"
+					Grid.Column="7"
+					Foreground="#404040"
+					FontWeight="Bold"
+					HorizontalAlignment="Left"
+					VerticalAlignment="Center"
+					FontSize="40"
+					Text="0"/>
+
+				<TextBlock
+					Grid.Column="8"
+					Foreground="#404040"
+					FontWeight="Bold"
+					HorizontalAlignment="Left"
+					VerticalAlignment="Center"
+					FontSize="20"
+					Text="s"/>
+
+			</Grid>
+			
+			<Grid Grid.Row="1" x:Name="SecondRow">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="1*"/>
+					<ColumnDefinition Width="1*"/>
+					<ColumnDefinition Width="1*"/>
+				</Grid.ColumnDefinitions>
+				
+			</Grid>
+
+			<Grid Grid.Row="2" x:Name="ThirdRow">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="1*"/>
+					<ColumnDefinition Width="1*"/>
+					<ColumnDefinition Width="1*"/>
+				</Grid.ColumnDefinitions>
+			</Grid>
+
+			<Grid Grid.Row="3" x:Name="FourthRow">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="1*"/>
+					<ColumnDefinition Width="1*"/>
+					<ColumnDefinition Width="1*"/>
+				</Grid.ColumnDefinitions>
+			</Grid>
+			<Grid Grid.Row="4" x:Name="FifthRow">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="1*"/>
+					<ColumnDefinition Width="1*"/>
+					<ColumnDefinition Width="1*"/>
+				</Grid.ColumnDefinitions>
+			</Grid>
+
+			<Grid Grid.Row="5">
+				<Button
+					x:Name="StartTimer"
+					HorizontalAlignment="Center"
+					VerticalAlignment="Center"
+					Content="Start" 
+					FontWeight="Bold" 
+					FontSize="30" 
+					Padding="40,0,40,0"
+					Click="StartTimer_Click"
+					/>
+			</Grid>
+		</Grid>
+</Window>

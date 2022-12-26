@@ -10,14 +10,29 @@ namespace Dashboard.ConfigClass
 {
     class ReadConfig
     {
-        public static Config? ReadConfigClass()
+        public static Config ReadConfigClass()
         {
             Config config = new();
             string configRaw = File.ReadAllText("./config.json");
 
             var configJson = JsonConvert.DeserializeObject<Config>(configRaw);
 
-            return configJson;
+            if (configJson == null)
+            {
+                throw new Exception();
+            }
+
+            //Checks if everything in the Class has a value
+            if (
+                configJson.GetType().GetProperties().All(x => x != null)
+                && configJson.Timer1Time.Length == 2
+                && configJson.Timer2Time.Length == 2
+            )
+            {
+                return configJson;
+            }
+
+            throw new Exception();
         }
     }
 }
